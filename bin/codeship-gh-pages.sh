@@ -33,6 +33,11 @@ git rm -rf .bowerrc
 bower cache clean $REPO # ensure we're getting the latest from the desired branch.
 bower install
 
+# Sed it all
+sed -i -e "s#../../#../bower_components/#g" "elements/elements.html"
+sed -i -e "s#../#bower_components/#g" "index.html"
+sed -i -e "s#../../#../bower_components/#g" "demo/index.html"
+
 # Send it all to github
 git add -A .
 git commit -am 'seed gh-pages'
