@@ -1,0 +1,69 @@
+<link rel="import" href="elements.html">
+
+<!--
+`<uqlibrary-time-picker>` is a simple TimePicker element
+
+Example:
+    <uqlibrary-time-picker date="{{date}}"></uqlibrary-time-picker>
+
+@demo
+
+@demo demo/index.html Demo of the Full view
+-->
+<dom-module id="uqlibrary-time-picker">
+  <!-- All element styles -->
+  <style is="custom-style" include="iron-flex iron-flex-alignment common-styles">
+    :host {
+      font-size: var(--body-font-size);
+    }
+
+    .container {
+      @apply(--layout-horizontal);
+    }
+
+    .time-divider {
+      padding-top: 25px;
+      font-size: 24px;
+    }
+
+    .minutes {
+      margin-right: 10px;
+    }
+
+    paper-input {
+      width: 40px;
+    }
+
+    paper-dropdown-menu {
+      --paper-input-container-input: {
+        width: 40px;
+      }
+    }
+  </style>
+
+  <!-- Template -->
+  <template>
+    <div class="container">
+      <!-- Hours -->
+      <paper-input flex auto-validate="true" type="number" min="1" max="12" aria-label="Select hours" value="{{ _hours }}"></paper-input>
+
+      <span class="time-divider" flex>:</span>
+
+      <!-- Minutes -->
+      <paper-input class="minutes" flex type="number" min="0" max="59" aria-label="Select minutes" value="{{ _minutes }}"></paper-input>
+
+      <!-- Meridian -->
+      <paper-dropdown-menu flex>
+        <paper-menu class="dropdown-content" selected="{{_meridian}}">
+          <paper-item>AM</paper-item>
+          <paper-item>PM</paper-item>
+        </paper-menu>
+      </paper-dropdown-menu>
+    </div>
+
+
+  </template>
+
+  <!-- Location of the script -->
+  <script src="uqlibrary-time-picker.js"></script>
+</dom-module>
