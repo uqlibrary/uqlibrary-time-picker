@@ -8,7 +8,6 @@
 # Get repo from DIR name
 cd `dirname "${BASH_SOURCE[0]}"`;
 REPO="$(basename `git rev-parse --show-toplevel`)";
-# REPO="uqlibrary-element"
 
 ORG="uqlibrary";
 
